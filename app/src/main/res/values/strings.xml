@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Palembang Water Candra</string>
+    <string name="judul">Palembang\nWater</string>
+    <string-array name="arr_country">
+        <item>Indonesia</item>
+        <item>Malaysia</item>
+        <item>Jepang</item>
+        <item>Prancis</item>
+        <item>Amerika Serikat</item>
+        <item>Singapore</item>
+    </string-array>
+</resources>
