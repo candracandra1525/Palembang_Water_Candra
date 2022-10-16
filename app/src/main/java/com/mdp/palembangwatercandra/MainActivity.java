@@ -15,46 +15,50 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Btn_SignUp = findViewById(R.id.btn_signup);
-        Btn_SignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
-        Btn_Login = findViewById(R.id.btn_login);
-        Btn_Login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        Btn_Palembang = findViewById(R.id.btn_palembangid);
-        Btn_Palembang.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent bukaWebsite = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.palembang.go.id/"));
-
-                try {
-                    startActivity(bukaWebsite);
+            Btn_Login = findViewById(R.id.btn_login);
+            Btn_Login.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view)
+                {
+                    Intent a = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(a);
                 }
-                catch (Exception e) {
-                    Toast.makeText(MainActivity.this, "Ada Kesalahan Teks Dalam Membuka Website", Toast.LENGTH_SHORT).show();
+            });
 
+            Btn_SignUp = findViewById(R.id.btn_signup);
+            Btn_SignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent b = new Intent(MainActivity.this, RegisterActivity.class);
+                    startActivity(b);
                 }
-            }
-        });
+            });
 
 
+            Btn_Palembang = findViewById(R.id.btn_palembangid);
+            Btn_Palembang.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Intent bukaWebsite = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.palembang.go.id/"));
+                    try
+                    {
+                        startActivity(bukaWebsite);
+                    }
+                    catch (Exception e)
+                    {
+                        Toast.makeText(MainActivity.this, "Ada Kesalahan Teks Dalam Membuka Website", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
     }
 }

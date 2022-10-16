@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     EditText et_usr, et_pas;
-    Button btn_lgn;
+    Button btn_lgn, btn_sgnup;
     ActionBar actionbar;
 
     @Override
@@ -47,13 +47,19 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else
                 {
-//                    Toast.makeText()
+                    Toast.makeText(LoginActivity.this, "Selamat Anda Berhasil Login", Toast.LENGTH_SHORT).show();
+                    onResume();
                 }
-
             }
         });
 
-
+        btn_sgnup = findViewById(R.id.btn_signup3);
+        btn_sgnup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
+            }
+        });
     }
 
     @Override
@@ -67,5 +73,12 @@ public class LoginActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        et_usr.setText("");
+        et_pas.setText("");
     }
 }

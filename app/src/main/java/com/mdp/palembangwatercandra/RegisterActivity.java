@@ -6,15 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity {
 
     ActionBar actionbar;
-    private TextView tv_Nama, tv_Negara, tv_Email;
+    private EditText et_Nama, et_Email, et_Pass, et_KonfirmPass;
+    private Spinner sp_Negara;
+    private Button btn_Sign;
 
-
-    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,15 +27,62 @@ public class RegisterActivity extends AppCompatActivity {
         actionbar = getSupportActionBar();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        tv_Nama = findViewById(R.id.tv_nama);
-        tv_Negara = findViewById(R.id.tv_negara);
-        tv_Email = findViewById(R.id.tv_email);
+        et_Nama = findViewById(R.id.et_fullname);
+        sp_Negara = findViewById(R.id.sp_country);
+        et_Email = findViewById(R.id.et_email);
+        et_Pass = findViewById(R.id.et_pass);
+        et_KonfirmPass = findViewById(R.id.et_confirmpass);
 
-        Intent intent = getIntent();
-        tv_Nama.setText(intent.getStringExtra("varNama"));
-        tv_Negara.setText(intent.getStringExtra("varNegara"));
-        tv_Email.setText(intent.getStringExtra("varEmail"));
+        btn_Sign = findViewById(R.id.btn_signup2);
+        btn_Sign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String nama,negara, email, pass, konfirmpass;
+                nama = et_Nama.getText().toString();
+                negara = sp_Negara.getSelectedItem().toString();
+                email = et_Email.getText().toString();
+                pass = et_Pass.getText().toString();
+                konfirmpass = et_KonfirmPass.toString();
 
+                if(nama.trim().equals(""))
+                {
+                    et_Nama.setError("Full Name Belum Di isi !");
+                    et_Nama.requestFocus();
+                }
+                else if(email.trim().equals(""))
+                {
+                    et_Email.setError("Email Masih Kosong !");
+                    et_Email.requestFocus();
+                }
+                else if(pass.trim().equals(""))
+                {
+                    et_Pass.setError("Password Masih Kosong !");
+                    et_Pass.requestFocus();
+                }
+                else if(konfirmpass.trim().equals(""))
+                {
+                    et_KonfirmPass.setError("Konfirmasi Password Masih Kosong !");
+                    et_KonfirmPass.requestFocus();
+                }
+                else
+                {
+//                    if(pass.equals(konfirmpass))
+//                    {
+                        Intent x = new Intent(RegisterActivity.this, ResultActivity.class);
+                        x.putExtra("varNama", nama);
+                        x.putExtra("varNegara", negara);
+                        x.putExtra("varEmail", email);
+                        startActivity(x);
+//                        onResume();
+//                    }
+//                    else
+//                    {
+//                        et_Pass.setError("Password tidak sama !");
+//                        et_KonfirmPass.setError("Konfirmasi Password tidak sama !");
+//                    }
+                }
+            }
+        });
     }
 
     @Override
@@ -45,5 +96,14 @@ public class RegisterActivity extends AppCompatActivity {
     public void onBackPressed()
     {
         super.onBackPressed();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        et_Nama.setText("");
+        et_Email.setText("");
+        et_Pass.setText("");
+        et_KonfirmPass.setText("");
     }
 }
