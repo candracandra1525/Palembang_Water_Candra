@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Palembang Water Candra</string>
     <string name="judul">Palembang\nWater</string>
+    <string name="keterangan">Your account has been created\n😁👌🏻</string>
     <string-array name="arr_country">
         <item>Indonesia</item>
         <item>Malaysia</item>

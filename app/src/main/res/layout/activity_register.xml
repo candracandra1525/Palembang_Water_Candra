@@ -15,6 +15,7 @@
         android:padding="15dp"
         android:text="SIGN UP"
         app:cornerRadius="16dp"
+        android:backgroundTint="#012E94"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +33,6 @@
         android:inputType="textPassword"
         android:textSize="15sp"
         android:background="@drawable/bg_corner"
-        android:backgroundTint="#FEE6CA"
         android:drawableStart="@drawable/ic_lock_24"
         android:drawablePadding="8dp"
         android:drawableTint="#274FA9"
@@ -52,7 +52,6 @@
         android:inputType="textPassword"
         android:textSize="15sp"
         android:background="@drawable/bg_corner"
-        android:backgroundTint="#FEE6CA"
         android:drawableStart="@drawable/ic_lock_24"
         android:drawablePadding="8dp"
         android:drawableTint="#274FA9"
@@ -72,7 +71,6 @@
         android:inputType="textEmailAddress"
         android:textSize="15sp"
         android:background="@drawable/bg_corner"
-        android:backgroundTint="#FEE6CA"
         android:drawableStart="@drawable/ic_email_24"
         android:drawablePadding="8dp"
         android:drawableTint="#274FA9"
@@ -88,10 +86,11 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="30dp"
         android:padding="15dp"
-        android:background="#FEE6CA"
+        android:background="@drawable/bg_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/et_email"
+
         />
 
     <EditText
@@ -106,7 +105,6 @@
         android:inputType="text"
         android:textSize="15sp"
         android:background="@drawable/bg_corner"
-        android:backgroundTint="#FEE6CA"
         android:drawableStart="@drawable/ic_person_24"
         android:drawablePadding="8dp"
         android:drawableTint="#274FA9"
